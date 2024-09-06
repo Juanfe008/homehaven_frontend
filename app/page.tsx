@@ -4,6 +4,7 @@ import Image from "next/image";
 import { FaHome, FaBed, FaBuilding } from 'react-icons/fa';
 import Categories from "./components/Categories";
 import Filter from "./components/Filter";
+import Locations from "./componentes/Locations.tsx";
 
 const categories = [
   { id: 1, name: "Casas rurales", icon: FaHome },
@@ -27,7 +28,7 @@ const categories = [
   { id: 19, name: "barcos", icon: FaBuilding },
   { id: 20, name: "diversión", icon: FaBuilding },
 ];
-import Locations from "./componentes/Locations.tsx";
+
 
 export default function Home() {
   const handleFilter = (filter: string) => {
@@ -41,9 +42,7 @@ export default function Home() {
       </div>
       <Filter onFilter={handleFilter} />
       <Categories categories={categories} />
-      <div>
-        <h1>Locaciones</h1>
-      </div>
+      <Locations/>
     </main>
   );
 }
