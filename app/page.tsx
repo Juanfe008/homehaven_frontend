@@ -27,6 +27,7 @@ const categories = [
   { id: 19, name: "barcos", icon: FaBuilding },
   { id: 20, name: "diversión", icon: FaBuilding },
 ];
+import Locations from "./componentes/Locations.tsx";
 
 export default function Home() {
   const handleFilter = (filter: string) => {
