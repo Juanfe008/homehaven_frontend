@@ -1,10 +1,18 @@
 "use client"; 
 
-import Image from "next/image";
 import { FaHome, FaBed, FaBuilding } from 'react-icons/fa';
 import Categories from "./components/Categories";
 import Filter from "./components/Filter";
-import Locations from "./componentes/Locations.tsx";
+import Locations from "./components/Locations.tsx";
+
+const locations = [
+  { rutaImagen: "/images/cali.jpeg", altImagen: "CALI" },
+  { rutaImagen: "/images/medellin.jpg", altImagen: "MEDELLÍN" },
+  { rutaImagen: "/images/popayan.jpeg", altImagen: "POPAYÁN" },
+  { rutaImagen: "/images/cartagena.jpeg", altImagen: "CARTAGENA" },
+  { rutaImagen: "/images/bogota.jpeg", altImagen: "BOGOTÁ" },
+  { rutaImagen: "/images/ipiales.jpeg", altImagen: "IPIALES" }
+];
 
 const categories = [
   { id: 1, name: "Casas rurales", icon: FaHome },
@@ -29,7 +37,6 @@ const categories = [
   { id: 20, name: "diversión", icon: FaBuilding },
 ];
 
-
 export default function Home() {
   const handleFilter = (filter: string) => {
     console.log("Filtering with:", filter);
@@ -37,12 +44,9 @@ export default function Home() {
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div>
-        <h1>Navbar</h1>
-      </div>
       <Filter onFilter={handleFilter} />
       <Categories categories={categories} />
-      <Locations/>
+      <Locations locations={locations}/>
     </main>
   );
 }

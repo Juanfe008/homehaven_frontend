@@ -1,8 +1,8 @@
 import Image from "next/image"
 
-const Itemlocations = ({ rutaImagen = "", altImagen = "default alt text" }) => {
+const Itemlocations = ({ rutaImagen = "", altImagen = "" }) => {
   return (
-    <div className="cursor-pointer group relative">
+    <div className="cursor-pointer group relative flex-none w-60">
       <div className="relative overflow-hidden w-full h-64 rounded-lg">
         <Image
           fill

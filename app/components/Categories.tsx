@@ -50,7 +50,7 @@ const Categories: React.FC<CategoriesProps> = ({ categories }) => {
       {showLeftArrow && (
         <button
           onClick={() => scroll('left')}
-          className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-white p-2 rounded-full shadow-md z-10"
+          className="absolute left-0 top-11 transform -translate-y-1/2 bg-white p-2 rounded-full shadow-md z-5"
         >
           <FaChevronLeft className="text-gray-600" />
         </button>
@@ -72,7 +72,7 @@ const Categories: React.FC<CategoriesProps> = ({ categories }) => {
       {showRightArrow && (
         <button
           onClick={() => scroll('right')}
-          className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-white p-2 rounded-full shadow-md z-10"
+          className="absolute right-0 top-11 transform -translate-y-1/2 bg-white p-2 rounded-full shadow-md z-5"
         >
           <FaChevronRight className="text-gray-600" />
         </button>
