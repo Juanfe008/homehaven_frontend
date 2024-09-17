@@ -1,40 +1,41 @@
 "use client"; 
 
-import { FaHome, FaBed, FaBuilding } from 'react-icons/fa';
+import { FaHome, FaBed, FaBuilding, FaRegBuilding, FaTree, FaUmbrellaBeach, FaShip, FaLaughBeam, FaCampground, FaTractor, FaWater, FaMountain, FaSun, FaSkiing, FaWineGlassAlt, FaPaintBrush, FaHotel, FaWarehouse, FaThemeisle, FaHotTub } from 'react-icons/fa';
 import Categories from "./components/Categories";
 import Filter from "./components/Filter";
 import Locations from "./components/Locations.tsx";
+import Properties from "./components/Properties.tsx";
 
 const locations = [
-  { rutaImagen: "/images/cali.jpeg", altImagen: "CALI" },
-  { rutaImagen: "/images/medellin.jpg", altImagen: "MEDELLÍN" },
-  { rutaImagen: "/images/popayan.jpeg", altImagen: "POPAYÁN" },
-  { rutaImagen: "/images/cartagena.jpeg", altImagen: "CARTAGENA" },
-  { rutaImagen: "/images/bogota.jpeg", altImagen: "BOGOTÁ" },
-  { rutaImagen: "/images/ipiales.jpeg", altImagen: "IPIALES" }
+  { id: 1, imageSrc: "/images/cali.jpeg", imageAlt: "CALI" },
+  { id: 2, imageSrc: "/images/medellin.jpg", imageAlt: "MEDELLÍN" },
+  { id: 3, imageSrc: "/images/popayan.jpeg", imageAlt: "POPAYÁN" },
+  { id: 4, imageSrc: "/images/cartagena.jpeg", imageAlt: "CARTAGENA" },
+  { id: 5, imageSrc: "/images/bogota.jpeg", imageAlt: "BOGOTÁ" },
+  { id: 6, imageSrc: "/images/ipiales.jpeg", imageAlt: "IPIALES" }
 ];
 
 const categories = [
-  { id: 1, name: "Casas rurales", icon: FaHome },
+  { id: 1, name: "Casas", icon: FaHome },
   { id: 2, name: "Habitaciones", icon: FaBed },
   { id: 3, name: "Apartamentos", icon: FaBuilding },
-  { id: 4, name: "Cabañas", icon: FaHome },
-  { id: 5, name: "Frente a la playa", icon: FaBed },
-  { id: 6, name: "Casas del arbol", icon: FaBuilding },
-  { id: 7, name: "Mansiones", icon: FaHome },
-  { id: 8, name: "castillos", icon: FaBed },
-  { id: 9, name: "barcos", icon: FaBuilding },
-  { id: 10, name: "diversión", icon: FaBuilding },
-  { id: 11, name: "Casas rurales", icon: FaHome },
-  { id: 12, name: "Habitaciones", icon: FaBed },
-  { id: 13, name: "Apartamentos", icon: FaBuilding },
-  { id: 14, name: "Cabañas", icon: FaHome },
-  { id: 15, name: "Frente a la playa", icon: FaBed },
-  { id: 16, name: "Casas del arbol", icon: FaBuilding },
-  { id: 17, name: "Mansiones", icon: FaHome },
-  { id: 18, name: "castillos", icon: FaBed },
-  { id: 19, name: "barcos", icon: FaBuilding },
-  { id: 20, name: "diversión", icon: FaBuilding },
+  { id: 4, name: "Cabañas", icon: FaWarehouse }, 
+  { id: 5, name: "Frente a la playa", icon: FaUmbrellaBeach },
+  { id: 6, name: "Casas del árbol", icon: FaTree }, 
+  { id: 7, name: "Mansiones", icon: FaHotel },
+  { id: 8, name: "Castillos", icon: FaRegBuilding }, 
+  { id: 9, name: "Barcos", icon: FaShip },
+  { id: 10, name: "Diversión", icon: FaLaughBeam },
+  { id: 11, name: "Glamping", icon: FaCampground },
+  { id: 12, name: "Granjas", icon: FaTractor },
+  { id: 13, name: "Islas", icon: FaThemeisle },
+  { id: 14, name: "Casas flotantes", icon: FaWater }, 
+  { id: 15, name: "Cuevas", icon: FaMountain },
+  { id: 16, name: "Desierto", icon: FaSun },
+  { id: 17, name: "Ski-in/out", icon: FaSkiing },
+  { id: 18, name: "Parques nacionales", icon: FaTree },
+  { id: 19, name: "Viñedos", icon: FaWineGlassAlt },
+  { id: 20, name: "Diseño", icon: FaPaintBrush },
 ];
 
 export default function Home() {
@@ -47,6 +48,7 @@ export default function Home() {
       <Filter onFilter={handleFilter} />
       <Categories categories={categories} />
       <Locations locations={locations}/>
+      <Properties/>
     </main>
   );
 }
