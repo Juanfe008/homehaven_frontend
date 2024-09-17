@@ -6,6 +6,15 @@ import Filter from "./components/Filter";
 import Locations from "./components/Locations.tsx";
 import Properties from "./components/Properties.tsx";
 
+const locations = [
+  { id: 1, imageSrc: "/images/cali.jpeg", imageAlt: "CALI" },
+  { id: 2, imageSrc: "/images/medellin.jpg", imageAlt: "MEDELLÍN" },
+  { id: 3, imageSrc: "/images/popayan.jpeg", imageAlt: "POPAYÁN" },
+  { id: 4, imageSrc: "/images/cartagena.jpeg", imageAlt: "CARTAGENA" },
+  { id: 5, imageSrc: "/images/bogota.jpeg", imageAlt: "BOGOTÁ" },
+  { id: 6, imageSrc: "/images/ipiales.jpeg", imageAlt: "IPIALES" }
+];
+
 const categories = [
   { id: 1, name: "Casas", icon: FaHome },
   { id: 2, name: "Habitaciones", icon: FaBed },
@@ -38,7 +47,7 @@ export default function Home() {
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
       <Filter onFilter={handleFilter} />
       <Categories categories={categories} />
-      <Locations/>
+      <Locations locations={locations}/>
       <Properties/>
     </main>
   );
