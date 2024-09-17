@@ -17,7 +17,7 @@ const Filter: React.FC<FilterProps> = ({ onFilter }) => {
   };
 
   return (
-    <div className="filter-component bg-white rounded-full shadow-md flex items-center justify-between p-2 max-w-5xl mx-auto">
+    <div className="filter-component bg-white rounded-full shadow-md flex items-center justify-between p-2 max-w-5xl mx-auto mb-3">
       <div className="flex items-center border-r px-4">
         <FaMapMarkerAlt className="text-gray-400 mr-2" />
         <input

@@ -6,7 +6,7 @@ const Navbar = () => {
       <nav className="bg-tipoyellow fixed border-b z-10 w-full py-4">
         <div className="max-w-[1500px] mx-auto px-8 flex justify-between items-center">
           <h1>
-            Home Heaven
+            Home Haven
           </h1>
           <div className="p-1.5 border border-black inline-block relative rounded-full">
             <button className="flex items-center justify-between w-12">
