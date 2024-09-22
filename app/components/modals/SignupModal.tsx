@@ -35,7 +35,7 @@ const SignupModal = () => {
                     onClick={() => console.log("holaaa")}
                 />
 
-                <div className="w-full border rounded-lg text-cyan-500 text-center py-1">
+                <div className="w-full border rounded-lg text-purple-500 text-center py-1">
                     <a
                         href=""
                         onClick={(e) => {
