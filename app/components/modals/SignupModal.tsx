@@ -32,6 +32,7 @@ const SignupModal = () => {
                 <div className="p-4 bg-purple-500 text-white rounded-xl opacity-80 ">Error</div>
                 <CustomButton 
                     label="Continuar"
+                    className="bg-purple-600 hover:bg-purple-700 py-4"
                     onClick={() => console.log("holaaa")}
                 />
 

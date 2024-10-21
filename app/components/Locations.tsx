@@ -1,8 +1,7 @@
 "use client";
 
 import React, { useState, useRef, useEffect } from 'react';
-import ItemLocations from './ItemLocations';
-import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
+import ItemLocations from './Itemlocations';
 
 interface Location {
   id: number;
@@ -53,9 +52,8 @@ const Locations: React.FC<LocationsProps> = ({ locations }) => {
         {showLeftArrow && (
           <button
             onClick={() => scroll('left')}
-            className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-white p-2 rounded-full shadow-md z-10"
-          >
-            <FaChevronLeft size={24} className="text-gray-600" />
+            className="absolute left-0 top-1/2 text-3xl transform -translate-y-1/2 bg-gray-500 opacity-80 text-white p-2 rounded-md shadow-md z-10">
+            &lang;
           </button>
         )}
         <div
@@ -72,9 +70,8 @@ const Locations: React.FC<LocationsProps> = ({ locations }) => {
         {showRightArrow && (
           <button
             onClick={() => scroll('right')}
-            className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-white p-2 rounded-full shadow-md z-10"
-          >
-            <FaChevronRight size={24} className="text-gray-600" />
+            className="absolute right-0 top-1/2 text-3xl transform -translate-y-1/2 bg-gray-500 opacity-80 text-white p-2 rounded-md shadow-md z-5">
+            &rang;
           </button>
         )}
       </div>

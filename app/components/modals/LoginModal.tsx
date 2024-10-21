@@ -30,6 +30,7 @@ const LoginModal = () => {
 
                 <CustomButton 
                     label="Continuar"
+                    className="bg-purple-600 hover:bg-purple-700 py-4"
                     onClick={() => console.log("holaaa")}
                 />
 
