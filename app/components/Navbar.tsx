@@ -6,20 +6,16 @@ import useSignupModal from "../hooks/useSignupModal";
 
 const Navbar = () => {
 
-  const [menuopen, setmenuopen] = useState(false)
-  const menuRef = useRef<HTMLDivElement>(null)
-  const LoginModal = useLoginModal()
-  const SignupModal = useSignupModal()
-
-  const togglemenu = () => {
-    setmenuopen(!menuopen)
-  }
+  const [menuOpen, setMenuOpen] = useState(false);
+  const menuRef = useRef<HTMLDivElement>(null);
+  const LoginModal = useLoginModal();
+  const SignupModal = useSignupModal();
 
   useEffect(() => {
     const clickOutside = (event: MouseEvent) => {
       if (menuRef.current && 
         !menuRef.current.contains(event.target as Node)) {
-        setmenuopen(false)
+        setMenuOpen(false)
       }
     }
 
@@ -31,33 +27,30 @@ const Navbar = () => {
   }, [])
 
   return (   
-    <nav className="bg-tipoyellow fixed border-b z-10 w-full py-4">
+    <nav className="bg-amber-300 fixed z-10 w-full py-2">
       <div className="max-w-[1500px] mx-auto px-8 flex justify-between items-center">
-        <h1>
-          Home Heaven
-        </h1>
+        <Image
+          src="/images/homeheaven.jpg"
+          className="rounded-lg cursor-pointer"
+          //onClick={() => goTo('/')}
+          alt="logo"
+          width={100}
+          height={100}
+        />
+        
         <div 
           ref={menuRef} 
-          className="cursor-pointer p-1.5 relative border border-black rounded-full hover:shadow-lg transition-shadow duration-300"
-          onClick={togglemenu}
+          className="cursor-pointer"
+          onClick={() => setMenuOpen(!menuOpen)}
         >
-          <div className="flex items-center justify-between w-12">
-            <Image 
-              src="/images/bars.png"
-              alt="bars"
-              width={20}
-              height={20}
-            />
-            
-            <Image
-              src="/images/login.png"
-              alt="login"
-              width={25}
-              height={25}
-            />
-          </div>
+          <Image
+            src="/images/login.png"
+            alt="login"
+            width={50}
+            height={50}
+          />
 
-          {menuopen && (
+          {menuOpen && (
             <div className="absolute right-0 mt-3 w-48 bg-white border border-gray-300 rounded-xl shadow-lg py-2">
               <a 
                 href="" 

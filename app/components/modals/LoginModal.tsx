@@ -1,10 +1,10 @@
 "use client"
 
-import Modal from "./Modal"
-import useLoginModal from "@/app/hooks/useLoginModal"
-import CustomButton from "../forms/CustomButton"
-import useForgetModal from "@/app/hooks/useForgetModal"
-import useSignupModal from "@/app/hooks/useSignupModal"
+import Modal from "../forms/Modal";
+import useForgetModal from "@/app/hooks/useForgetModal";
+import useSignupModal from "@/app/hooks/useSignupModal";
+import useLoginModal from "@/app/hooks/useLoginModal";
+import CustomButton from "../forms/CustomButton";
 
 const LoginModal = () => {
 
@@ -25,9 +25,7 @@ const LoginModal = () => {
                     placeholder="contraseña"
                     className="w-full h-[54px] px-4 border border-gray-100 focus:outline-none focus:border-2 focus:border-blue-800 rounded-xl"
                 />
-
-                <div className="p-4 bg-purple-500 text-white rounded-xl opacity-80 ">Error</div>
-
+                
                 <CustomButton 
                     label="Continuar"
                     className="bg-purple-600 hover:bg-purple-700 py-4"

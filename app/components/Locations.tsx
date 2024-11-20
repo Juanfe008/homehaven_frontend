@@ -46,8 +46,10 @@ const Locations: React.FC<LocationsProps> = ({ locations }) => {
   };
 
   return (
-    <main className="w-full px-6">
-      <h1>Mejores destinos turísticos en Colombia</h1>
+    <main className="flex flex-col justify-between gap-4">
+
+      <h1 className='border border-black'>Mejores destinos turísticos en Colombia</h1>
+
       <div className="relative mt-4">
         {showLeftArrow && (
           <button

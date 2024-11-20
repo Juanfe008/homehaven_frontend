@@ -1,6 +1,6 @@
 "use client"
 
-import Modal from "./Modal"
+import Modal from "../forms/Modal"
 import useForgetModal from "@/app/hooks/useForgetModal"
 import CustomButton from "../forms/CustomButton"
 import useLoginModal from "@/app/hooks/useLoginModal"

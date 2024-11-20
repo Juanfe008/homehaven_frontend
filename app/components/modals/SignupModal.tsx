@@ -1,18 +1,15 @@
 "use client"
 
-import Modal from "./Modal"
-import useSignupModal from "@/app/hooks/useSignupModal"
-import useLoginModal from "@/app/hooks/useLoginModal"
-import CustomButton from "../forms/CustomButton"
-import { useState } from "react"
+import Modal from "../forms/Modal";
+import useSignupModal from "@/app/hooks/useSignupModal";
+import useLoginModal from "@/app/hooks/useLoginModal";
+import CustomButton from "../forms/CustomButton";
+import { useState } from "react";
+import Swal from 'sweetalert2';
 
 const SignupModal = () => {
-
     const SignupModal = useSignupModal();
     const LoginModal = useLoginModal();
-    const [alerta, setAlerta] = useState(false);
-    const [errorRespuesta, setErrorRespuesta] = useState(false);
-    const [victoria, setVictoria] = useState(false);
 
     const [user, setUser] = useState('');
     const [email, setEmail] = useState('');
@@ -22,37 +19,70 @@ const SignupModal = () => {
     const registrar = () => {
         const info = { usuario: user, correo: email, contraseña: pass };
 
-        if (pass !== pass2) {
-            setAlerta(true);
-            setErrorRespuesta(false);
-            return;
-        }
-
-        fetch('http://localhost:8000/api/v1/usuarios/', {
-            method: 'POST',
-            body: JSON.stringify(info),
-            headers: { 'Content-Type': 'application/json' }
-        })
-        .then(response => {
-            if (response.ok) {
-                setUser('');
-                setEmail('');
-                setPass('');
-                setPass2('');
-                setVictoria(true);
-                setAlerta(false);
-                setErrorRespuesta(false);
-
-                //SignupModal.close();
-                //LoginModal.open();
-            } else {
-                throw new Error(`Error en la solicitud: ${response.status} ${response.statusText}`);
+        if (!user || !email || !pass || !pass2) {
+            Swal.fire({
+                icon: 'error',
+                title: '¡Debes llenar todos los campos requeridos!',
+                toast: true,
+                position: 'top-right',
+                showConfirmButton: false,
+                timer: 3000,
+                background: '#ff0000',
+                color: 'white',
+                iconColor: 'white'
+            });
+        } else {
+            if (pass !== pass2) {
+                Swal.fire({
+                    icon: 'error',
+                    title: '¡Las contraseñas deben coincidir!',toast: true,
+                    position: 'top-right',
+                    showConfirmButton: false,
+                    timer: 3000,
+                    background: '#ff0000',
+                    color: 'white',
+                    iconColor: 'white'
+                });
+                return;
             }
-        })
-        .catch(() => {
-            setErrorRespuesta(true);
-            setAlerta(false);
-        });
+
+            fetch('http://localhost:8000/api/v1/usuarios/', {
+                method: 'POST',
+                body: JSON.stringify(info),
+                headers: { 'Content-Type': 'application/json' }
+            })
+            .then(response => {
+                if (response.ok) {
+                    Swal.fire({
+                        icon: 'success',
+                        title: '¡Los datos fueron guardados con exito!',
+                        toast: true,
+                        position: 'top-right',
+                        showConfirmButton: false,
+                        timer: 3000,
+                        background: '#00ff00',
+                        color: 'white',
+                        iconColor: 'white'
+                    });
+    
+                    //SignupModal.close();
+                    //LoginModal.open();
+                }
+            })
+            .catch(() => {
+                Swal.fire({
+                    icon: 'error',
+                    title: '¡Ocurrio algo inesperado, intentalo de nuevo!',
+                    toast: true,
+                    position: 'top-right',
+                    showConfirmButton: false,
+                    timer: 3000,
+                    background: '#ff0000',
+                    color: 'white',
+                    iconColor: 'white'
+                });
+            });
+        }
     }
 
     const content = (
@@ -86,24 +116,6 @@ const SignupModal = () => {
                     onChange={(e) => setPass2(e.target.value)}
                     className="w-full h-[54px] px-4 border border-gray-100 focus:outline-none focus:border-2 focus:border-cyan-500 rounded-xl"
                 />
-
-                {alerta &&
-                    <div className="p-4 bg-red-500 text-white rounded-xl opacity-80 ">
-                        Error: Las contraseñas no coinciden
-                    </div>
-                }
-
-                {errorRespuesta &&
-                    <div className="p-4 bg-red-500 text-white rounded-xl opacity-80 ">
-                        Error: Algo salió mal, intentalo de nuevo
-                    </div>
-                }
-
-                {victoria &&
-                    <div className="p-4 bg-green-500 text-white rounded-xl opacity-80 ">
-                        Datos guardados con exito
-                    </div>
-                }
 
                 <CustomButton 
                     label="Continuar"
